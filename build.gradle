@@ -1,19 +1,50 @@
+
 plugins {
     id 'java'
+    id 'idea'
+    id ("net.serenity-bdd.serenity-gradle-plugin") version("4.0.12")
 }
 
 group = 'org.example'
-version = '1.0-SNAPSHOT'
+version = '1.0'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://pkgs.dev.azure.com/DEV-FormacionCH/f11a2ddb-f565-44a3-8710-e9e1472d29ee/_packaging/Choucair/maven/v1'
+    }
+    mavenLocal()
+}
+
+
+ext{
+    serenityVersion = '4.0.12'
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityVersion"
+    implementation(group: 'com.choucair', name: 'libreria', version: '2.0.0')
 }
+
+//apply from: 'tasks.gradle'
 
 test {
     useJUnitPlatform()
+    useJUnit {
+        include "**/*"
+        gradle.startParameter.continueOnFailure = false
+        testLogging.showStandardStreams = false
+        systemProperties System.getProperties()
+       // systemProperties project.properties.subMap(["env","user","pass","host","inst", "port","scheme","userbd","passbd","userD","passD","hostD","instD","databaseD","urldbauto","userdbauto","passdbauto","urldbdominus","userdbdominus","passdbdominus","urldbmaestrosunicos","urldbtasas","userdbmaestrostasas","passdbmaestrostasas","formatDate"])
+        systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+    }
 }
+
+test.finalizedBy(aggregate)
