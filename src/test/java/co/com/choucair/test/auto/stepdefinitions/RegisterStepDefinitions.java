@@ -2,6 +2,7 @@ package co.com.choucair.test.auto.stepdefinitions;
 
 
 import co.com.choucair.test.auto.tasks.Login;
+import co.com.choucair.test.auto.tasks.RegisterNewEmployee;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +16,7 @@ public class RegisterStepDefinitions {
 
     @Given("enter the url of the app")
     public void enterTheUrlApp(){
-        OnStage.theActorCalled(client).wasAbleTo(Open.url("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"));
+        OnStage.theActorCalled(client).wasAbleTo(Open.url(urlApp));
     }
 
     @When("login in with valid credentials")
@@ -23,15 +24,15 @@ public class RegisterStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(Login.withCredentials());
     }
 
-    @When("navigate to Module PIM and creat new employee")
-    public void navigate_to_module_pim_and_creat_new_employee() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("navigate to Module PIM and create new employee")
+    public void createeNewEmployee() {
+        OnStage.theActorInTheSpotlight().attemptsTo(RegisterNewEmployee.register());
     }
+
+
     @Then("validate new employee")
-    public void validate_new_employee() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void validateNewEmployee() {
+
     }
 
 

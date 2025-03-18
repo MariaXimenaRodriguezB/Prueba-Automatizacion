@@ -7,5 +7,5 @@
   Scenario: Create a new employee
     Given enter the url of the app
     When login in with valid credentials
-    And navigate to Module PIM and creat new employee
+    And navigate to Module PIM and create new employee
     Then validate new employee
