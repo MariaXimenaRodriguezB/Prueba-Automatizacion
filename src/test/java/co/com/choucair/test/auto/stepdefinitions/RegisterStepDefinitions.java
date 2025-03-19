@@ -1,11 +1,13 @@
 package co.com.choucair.test.auto.stepdefinitions;
 
 
+import co.com.choucair.test.auto.questions.QuestionRegister;
 import co.com.choucair.test.auto.tasks.Login;
 import co.com.choucair.test.auto.tasks.RegisterNewEmployee;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 
@@ -29,12 +31,9 @@ public class RegisterStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(RegisterNewEmployee.register());
     }
 
-
     @Then("validate new employee")
     public void validateNewEmployee() {
-
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(QuestionRegister.value()));
     }
-
-
 
 }
