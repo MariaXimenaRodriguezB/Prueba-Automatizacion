@@ -8,7 +8,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
 import static co.com.choucair.test.auto.userinterfances.MenuMain.OPTION_MENU;
-import static co.com.choucair.test.auto.userinterfances.PageAddEmployee.INPUT_EMPLOYEEID;
 import static co.com.choucair.test.auto.userinterfances.PageEmployeeList.*;
 
 public class FindEmployeeForId implements Interaction {
@@ -26,8 +25,8 @@ public class FindEmployeeForId implements Interaction {
                 Enter.theValue(id).into(INPUT_EMPLOYEEID_FIND),
                 Click.on(BUTTON_SEARCH),
                 WaitStatic.milliseconds(3000),
-                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("2"),"Valor1"),
-                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("3"),"Valor2"));
+                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("2"),"valueTextOne"),
+                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("3"),"valueTextTwo"));
 
     }
 }

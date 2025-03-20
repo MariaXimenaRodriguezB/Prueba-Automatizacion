@@ -1,6 +1,7 @@
 package co.com.choucair.test.auto.questions;
 
 import co.com.choucair.test.auto.interactions.FindEmployeeForId;
+import co.com.choucair.test.auto.models.ExecutionData;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
@@ -11,18 +12,18 @@ public class QuestionRegister implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
 
-        String valueId = actor.recall("Valor");
+        String valueId = actor.recall("valueInput");
 
         actor.attemptsTo(FindEmployeeForId.findEmployee(valueId));
 
-        String valueIdResult = actor.recall("Valor1");
+        String valueIdResult = actor.recall("valueTextOne");
 
-        String valueNameResult = actor.recall("Valor2");
+        String valueNameResult = actor.recall("valueTextTwo");
 
-        Boolean resultvalueName = valueNameResult.equals("XimenaR1234567 XimenaRodriguez1234567");
+        Boolean resultvalueName = valueNameResult.equals(ExecutionData.getFirstName()+" "+ExecutionData.getMiddleName());
 
-        System.out.println("resulta name " + resultvalueName);
+        Boolean resultvalueId = valueId.equals(valueIdResult);
 
-        return valueId.equals(valueIdResult);
+        return resultvalueId && resultvalueName;
     }
 }
