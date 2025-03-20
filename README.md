@@ -24,7 +24,7 @@ Este documento proporciona instrucciones sobre cómo configurar y ejecutar las p
 NOTA : Los datos utilizados en la ejecucion se pueden ingresar a traves del scenario outline. NO es necesario modificarlos de manera frecuente; 
 ya que a traves del codigo, los campos que deben ser unicos para el aplicativo, se generan de forma aleatoria, tomando como base del texto, lo ingresado en la tabla del Scenario Oultine.
 
-./gradlew clean test aggregate -D url=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login -D user=Admin -D pass=admin123
+./gradlew clean test aggregate -D url=urlAplicativo -D user=usuarioAdministrador -D pass=contraseñaAdministrador
 
 * Se debe cambiar urlAplicativo, usuarioAdministrador y contraseñaAdministrador; por los valores correspondientes.
 
