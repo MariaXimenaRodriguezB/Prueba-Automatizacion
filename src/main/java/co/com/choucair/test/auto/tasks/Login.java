@@ -1,6 +1,5 @@
 package co.com.choucair.test.auto.tasks;
 
-import co.com.choucair.test.auto.interactions.WaitStatic;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;

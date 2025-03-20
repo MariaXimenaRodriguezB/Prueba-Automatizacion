@@ -21,8 +21,10 @@ public class FindEmployeeForId implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo( Click.on(OPTION_MENU.of("PIM")),
+                WaitStatic.milliseconds(3000),
                 Click.on(INPUT_EMPLOYEEID_FIND),
                 Enter.theValue(id).into(INPUT_EMPLOYEEID_FIND),
+                WaitStatic.milliseconds(3000),
                 Click.on(BUTTON_SEARCH),
                 WaitStatic.milliseconds(3000),
                 ElementValue.message(LIST_EMPLOYEEID_VALUE.of("2"),"valueTextOne"),
