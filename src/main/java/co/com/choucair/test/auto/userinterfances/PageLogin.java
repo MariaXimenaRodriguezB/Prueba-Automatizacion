@@ -9,6 +9,6 @@ public class PageLogin {
 
     public static final Target INPUT_PASSWORD = Target.the("Input Password").locatedBy("//input[@name='password']");
 
-    public static final Target BUTTON_LOGIN = Target.the("Button Login").locatedBy("//button[text()=' Login ']");
+    public static final Target BUTTON_LOGIN = Target.the("Button Login").locatedBy("//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']");
 
 }

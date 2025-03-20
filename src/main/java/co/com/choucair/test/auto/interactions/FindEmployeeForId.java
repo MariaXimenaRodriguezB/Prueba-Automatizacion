@@ -27,8 +27,8 @@ public class FindEmployeeForId implements Interaction {
                 WaitStatic.milliseconds(3000),
                 Click.on(BUTTON_SEARCH),
                 WaitStatic.milliseconds(3000),
-                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("2"),"valueTextOne"),
-                ElementValue.message(LIST_EMPLOYEEID_VALUE.of("3"),"valueTextTwo"));
+                ElementValue.message(LIST_EMPLOYEE_VALUE.of("2"),"valueTextOne"),
+                ElementValue.message(LIST_EMPLOYEE_VALUE.of("3"),"valueTextTwo"));
 
     }
 }
